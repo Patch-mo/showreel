@@ -1,6 +1,5 @@
 // Create a WaveSurfer instance
 let wavesurfer;
-
 // Init on DOM ready
 document.addEventListener('DOMContentLoaded', function () {
     wavesurfer = WaveSurfer.create({
@@ -17,9 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
         height: 120,
         barGap: 2,
     });
+    wavesurfer.once('ready', function () {
+        console.log(
+            'JACK PLAYER READY, using wavesurfer.js ' + WaveSurfer.VERSION
+        );
+    });
 });
 
 // Bind controls
+
 document.addEventListener('DOMContentLoaded', function () {
     let playPause = document.querySelector('#playPause');
     playPause.addEventListener('click', function () {
@@ -96,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Play on audio load
     wavesurfer.on('ready', function () {
         wavesurfer.play();
+        console.log('playing');
     });
 
     wavesurfer.on('error', function (e) {
