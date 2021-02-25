@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // };
 
     let setCurrentSong = function (index) {
-        // Bug fix 1 of 2
+        // bug fix 1 of 2
         wavesurfer.pause();
 
         //set playlist styles
