@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // };
 
     let setCurrentSong = function (index) {
-        // wavesurfer.pause();
+        // bug fix 1 of 2
+        wavesurfer.pause();
 
         //set playlist styles
         links[currentTrack].classList.remove('active');
@@ -60,7 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var waveFile = `json/${trackName}.json`;
 
-        // wavesurfer.load(audioFile);
+        // bug fix 2 of 2
+        wavesurfer.load(audioFile);
 
         //load peaks from json file
         fetch(waveFile)
