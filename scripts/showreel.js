@@ -4,7 +4,9 @@ let wavesurfer;
 // Init on DOM ready
 document.addEventListener('DOMContentLoaded', function () {
     wavesurfer = WaveSurfer.create({
-        container: '#waveform',
+        container: document.querySelector('#waveform'),
+        backend: 'MediaElement',
+        mediaControls: false,
         waveColor: '#F7F7F5',
         progressColor: '##46413B',
         cursorColor: '#46413B',
@@ -61,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var waveFile = `json/${trackName}.json`;
 
-        // Bug fix 2 of 2
-        wavesurfer.load(audioFile);
+        // // Bug fix 2 of 2
+        // wavesurfer.load(audioFile);
 
         //load peaks from json file
         fetch(waveFile)
