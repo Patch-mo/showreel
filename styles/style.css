@@ -1,0 +1,357 @@
+/* FONT START */
+
+@font-face {
+  font-family: peace;
+  src: url(Peace.otf);
+}
+
+/* FONT END */
+
+/* CSS RESET START */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* CSS RESET END */
+
+/* BOX SIZING START */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html, body { 
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+* default document font size = 16px, 1rem = 16px, 100% = 16px
+* (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px */
+
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* BOX SIZING END */
+
+/* CUSTOM PROPERTIES START */
+
+:root {
+  /* --background: rgb(250, 227, 222);  */
+  /* --background: #FC766AFF; */
+  --background: #adefd1ff;
+  --text: rgba(0, 0, 0, 0.85);
+  --font-body: 1.2rem;
+  --font-header: 2rem;
+  --font-nav: 3rem;
+
+}
+
+@media screen and (max-width: 450px) {
+  :root {
+    --font-nav: 2rem;
+    --font-header: 1.5rem;
+    --font-body: 1rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  :root {
+    --font-body: 1.5rem;
+    --font-header: 3rem;
+  --font-nav: 4rem;
+  }
+}
+
+/* CUSTOM PROPERTIES END */
+
+/* BASE STYLES START */
+
+body {
+  background: var(--background);
+  color: var(--text);
+  text-align: center;
+  align-items: center;
+  font-family: peace;
+  font-size: var(--font-body);
+  animation-name: backflash;
+  animation-duration: 360s;
+  animation-iteration-count: infinite;
+  max-width: 65vw;
+  /*max-height: 70vh;*/
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.3s;
+}
+a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+ul {
+  list-style: none;
+  list-style-position: inside;
+  padding-left: 0;
+}
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: var(--font-header-big);
+  font-family: peace;
+}
+
+h2 {
+  font-size: var(--font-header);
+  font-family: peace;
+  margin-top: 20px;
+}
+
+/* Background Animation */
+
+@keyframes backflash {
+  25% {
+    background: rgb(127, 140, 255);
+  }
+  50% {
+    background: rgb(66, 240, 133);
+  }
+  75% {
+    background: rgb(205, 134, 240);
+  }
+  100% {
+    background: rgb(243, 243, 89);
+  }
+}
+
+/* BASE STYLES END */
+
+/* NAV SECTION START */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  top: 0;
+  left: 0;
+}
+.nav-semantic {
+  /* For Semantic Wave header*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+  font-size: var(--font-header);
+}
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  font-size: var(--font-nav);
+ /* background-color: aqua;*/
+}
+
+/* NAV SECTION END */
+
+/* BIG HEADER START */
+
+.big-header {
+  background-color: var(--background);
+  text-align: center;
+  margin: auto;
+  font-family: peace;
+  animation-name: backflash;
+  animation-duration: 360s;
+  animation-iteration-count: infinite;
+  margin-bottom: 0px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0px;
+ /* background-color: aqua;*/
+}
+
+/* BIG HEADER END */
+
+/* INDEX PAGE START */
+
+
+#index-align{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.index-text {
+  font-size: var(--font-header);
+  font-family: peace;
+  margin: auto;
+}
+
+.index-enter-btn {
+  font-size: var(--font-header);
+  margin-top: 5rem;
+}
+
+
+/* INDEX PAGE END */
+
+/* INFO BOX START */
+
+.info-text {
+  font-size: var(--font-body);
+  font-family: peace;
+  margin-bottom: 5rem;
+  line-height: 1.8rem;
+  text-align: center
+
+}
+
+/* INFO BOX END */
+
+/* WORK PAGE GRID START */
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 2rem;
+  width: 65vw;
+  margin: 10px auto;
+  margin-bottom: 1rem;
+}
+.work {
+  background: var(--background);
+  border-radius: 2px;
+  animation-name: backflash;
+  animation-duration: 360s;
+  animation-iteration-count: infinite;
+}
+.work-image {
+  height: calc(100%-6.8rem);
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  filter: var(--text);
+  filter: gray;
+  -webkit-filter: grayscale(1);
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+.work-image:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  -webkit-transform: scale(1.005);
+  transform: scale(1.005);
+}
+.work-title {
+  font-size: var(--font-body);
+  padding: 0.5rem 0.5rem;
+}
+
+/* WORK PAGE GRID END */
+
+/* WORK PAGE MODAL VIMEO START */
+
+/* The Modal (Background)*/
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  /* background-color: rgb(0,7,0); /* Fallback color */
+  /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  -moz-transition: opacity 0.8s ease-in-out;
+  -webkit-transition: opacity 0.8s ease-in-out;
+}
+
+.modal.hide {
+  display: none;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+/* Modal Content - The Box */
+.modal-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  /* animation: fade-In ease 2s; */
+  color: rgba(255, 255, 255, 0.85);
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 80vw;
+}
+#modal-vimeo {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+#modal-vimeo iframe {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Dont think we need animation for this simple fade */
+@keyframes fade-In {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#modal-description {
+  margin-top: 50px;
+}
+
+/* The Close Button */
+
+.close {
+  position: absolute;
+  right: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 28px;
+  font-weight: bold;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.close:hover,
+.close:focus {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+/* WORK PAGE MODAL VIMEO END */

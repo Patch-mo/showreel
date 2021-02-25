@@ -1,0 +1,210 @@
+/* FONT START */
+
+@font-face {
+    font-family: peace;
+    src: url(Peace.otf);
+}
+
+/* FONT END   */
+
+/* CSS RESET START */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS RESET END */
+
+/* BOX SIZING START */
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+
+    /* Set font size for easy rem calculations
+  * default document font size = 16px, 1rem = 16px, 100% = 16px
+  * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px */
+
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+/* BOX SIZING END */
+
+/* CUSTOM PROPERTIES START */
+
+:root {
+    --background: #F7F7F5;
+    --text: #020204;
+    --color-01:#46413B;
+    --color-02: #BEBBB6
+    --font-body: 1.2rem;
+    --font-header: 2rem;
+    --font-nav: 3rem;
+    --font-header-big: 4rem;
+}
+
+@media screen and (max-width: 450px) {
+    :root {
+        --font-nav: 2rem;
+        --font-header: 1.5rem;
+        --font-body: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        --font-body: 2rem;
+        --font-header: 3rem;
+        --font-nav: 4rem;
+    }
+}
+
+/* CUSTOM PROPERTIES END */
+
+/* BASE STYLES START */
+
+body {
+    display: block;
+    background: var(--background);
+    color: var(--text);
+    font-family: peace;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.3s;
+}
+a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+ul {
+    list-style: none;
+    list-style-position: inside;
+    padding-left: 0;
+    line-height: 1.6;
+}
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-size: var(--font-header-big);
+    font-family: peace;
+}
+
+h2 {
+    margin-top: 15px;
+    font-size: var(--font-header);
+    font-family: peace;
+}
+
+/* BASE STYLES END */
+
+/* WRAPPERS START */
+
+.container {
+    margin-top: 50px;
+    max-width: 100%;
+}
+
+.inner {
+    margin: auto;
+    max-width: 600px;
+}
+
+/* WRAPPERS END */
+
+/* TITLE & BUTTONS */
+
+.title {
+    line-height: 200%;
+}
+
+.far {
+    outline: none;
+}
+
+#playPause{
+    outline: none;
+}
+
+button {
+    background-color: #BEBBB6;
+    color:#020204;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+  }
+
+
+/* MP3 PLAYER START  */
+
+.player-container {
+    background: var(--background);
+    display: flex;
+    height: 120px;
+}
+#waveform {
+    width: 100%;
+}
+
+.button-wrapper {
+    background: var(--background);
+    height: 120px;
+    width: 120px;
+}
+#playPause {
+    height: 120px;
+    width: 120px;
+    font-size: 100px;
+}
+
+/* MP3 PLAYER END */
+
+/* PLAYLIST START */
+
+.list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+    background: var(--color-01);
+    font-size: var(--font-body);
+    cursor: pointer;
+    user-select: none;
+}
+
+.list-group-item:hover {
+    filter: brightness(80%);
+}
+
+
+.list-group-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #F7F7F5;
+    background-color:#BEBBB6;
+}
+
+
+/* PLAYLIST END */
